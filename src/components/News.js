@@ -7,12 +7,12 @@ export class News extends Component {
     static defaultProps = {
         country: 'in',
         pageSize: 8,
-        category : 'general',
+        category: 'general',
     }
 
     static propTypes = {
-        country : PropTypes.string,
-        pageSize : PropTypes.number,
+        country: PropTypes.string,
+        pageSize: PropTypes.number,
         category: PropTypes.string,
     }
     constructor() {
@@ -34,7 +34,7 @@ export class News extends Component {
     handleNextClick = async () => {
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
             console.log("next");
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=014475f3bfe84028bce67eebe6fbe653&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=014475f3bfe84028bce67eebe6fbe653&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.setState({ loading: true });
             let data = await fetch(url);
             let parsedData = await data.json()
@@ -46,7 +46,7 @@ export class News extends Component {
         }
     }
     handlePrevClick = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=014475f3bfe84028bce67eebe6fbe653&page =${this.state.page-1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=014475f3bfe84028bce67eebe6fbe653&page =${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -60,11 +60,12 @@ export class News extends Component {
         return (
             <div className="container my-3">
                 <h1 className="text-center">NewsMonkey - Top Headlines</h1>
-                {this.state.loading && <Spinner/>}
+                {this.state.loading && <Spinner />}
                 <div className="row">
                     {!this.state.loading && this.state.articles.map((element) => {
                         return <div className="col-md-4" key={element.url}>
-                            <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} />
+                            <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""}
+                                imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                         </div>
                     })}
                 </div>
