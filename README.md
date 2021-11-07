@@ -1,3 +1,28 @@
+### Website Features:
+
+* I built a website which displays latest news in different categories. 
+* It uses NewsAPI to fetch latest news.
+
+
+### Technologies Used: 
+
+* The FrontEnd is built using **Reactjs, CSS/Bootstrap, HTML and Hooks API** for state management in React.
+* Integrated News API to diplay latest news in the react App.
+* Used React-Router to switch between different categories of news and display them on the web app.
+
+
+
+### Snapshots
+![newsappimg1](https://user-images.githubusercontent.com/58468853/140633931-399d966b-d526-4223-8f01-d495e3a948c8.png)
+![newsappimg2](https://user-images.githubusercontent.com/58468853/140633933-81b69b2a-7159-4645-8e02-e8daac5c0740.png)
+
+
+### DEMO
+
+
+https://user-images.githubusercontent.com/58468853/140633940-3cb33cd4-c473-4cc9-9144-a6a6c411e1f3.mp4
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
